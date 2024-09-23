@@ -1,0 +1,432 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth; /*هذه الخاصية تجعل التنقل بين الأقسام سلس وذلك عند النقر على اسم القسم في المينو*/
+    /*طبعاً هذه الخاصية غير مدعومة في كل المتصفحات لذلك لازم تبحث عن الدعم مالتها*/
+}
+body {
+    font-family: "Work Sans", sans-serif;
+}
+/* Start Variables */
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-background: #f6f6f6;
+    --paragraph-color: #777;
+    --padding-between-pages: 60px;
+    --main-duration: 0.3s;
+}
+/* End Variables */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Small Screens */
+@media (min-width: 768px){
+    .container {
+        width: 750px;
+    }
+}
+/* Medium Screens */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+/* Start Components (framework)*/
+/* المقصود من هذا القسم هو التنسيقات الي راح استخدمها اكثر من مرة */
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+.special-heading + p {
+    font-size: 20px;
+    margin: -30px 0 0;
+    text-align: center;
+    color: var(--paragraph-color);
+}
+@media (max-width: 767px) { /*this is for mobile*/
+    .special-heading {
+        font-size: 60px;
+    }
+    .special-heading + p {
+        margin: -20px 0 0;
+    }
+}
+.grid-three-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    /*اقل حجم للعنصر هو 300 ولو كان لدينا مساحة اكبر مثل 700 فراح يخلي عنصرين يقسم 700 عليهم وينزل الثالث الى تحت*/
+}
+/* End Components */
+/* Start Header  */
+header {
+    padding: 20px;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .container img.logo {
+    width: 70px;
+}
+header .links {
+    position: relative; /* لأجل القيام بالحركة التالي: وهي عند وضع المؤشر على قائمة المينو تظهر الخيارات */
+}
+header .links:hover .burger-icon span:nth-child(2) {
+    width: 100%;
+}
+header .links .burger-icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+header .links .burger-icon span {
+    margin-bottom: 5px;
+    height: 3px;
+    background-color: #333;
+}
+header .links .burger-icon span:first-child {
+    width: 100%;
+}
+header .links .burger-icon span:nth-child(2) {
+    width: 60%;
+    transition: var(--main-duration);
+}
+header .links .burger-icon span:last-child {
+    width: 100%;
+}
+header .links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #e4e4e4;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    top: calc(100% + 15px);
+    display: none;
+}
+header .links:hover  ul {
+    display: block;
+    z-index: 1; 
+}
+header .links ul::before {
+    content: "";
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent transparent  #e4e4e4 transparent ;
+    position: absolute;
+    right: 4px;
+    top: -24px;
+}
+header .links ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    color: #333;
+    transition: var(--main-duration);
+}
+header .links ul li:not(:last-child) a{
+    border-bottom: 1px #cac1c1 solid;
+}
+header .links ul li a:hover {
+    padding-left: 25px;
+}
+/* End Header  */
+/* Start Landing Section  */
+.landing {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: calc(100vh - 68px);
+    position: relative;
+}
+.landing .intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /*السطرين في الأسفل الغرض منهم هو منع تمدد العنصر*/
+    width: 320px;
+    max-width: 100%;
+}
+.landing .intro-text h1 {
+    margin: 0;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 50px;
+}
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+/* End Landing Section  */
+/* Start Features  */
+.features {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: var(--padding-between-pages);
+    background-color: var(--section-background);
+}
+.features .container .feat {
+    padding: 20px;
+    text-align: center;
+}
+.features .container .feat i {
+    color: var(--main-color);
+}
+.features .container .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+.features .container .feat p {
+    line-height: 1.8;
+    color: var(--paragraph-color);
+    font-size: 17px;
+}
+/* End Features  */
+/* Start Services */
+.services {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: var(--padding-between-pages);
+}
+.services .services-content {
+    margin-top: 100px;
+}
+.services .services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+}
+@media (max-width: 767px) { /*لاجل انن يتم عرض التصميم بالطول في الهاتف*/
+    .services .services-content .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.services .services-content .srv i {
+    color: var(--main-color);
+    flex-basis: 60px; /*لاجل ان يتعامل مع القياس على انهُ طول وعرض */
+}
+.services .services-content .srv .text {
+    flex: 1;
+}
+.services .services-content .srv h3 {
+    font-weight: 800;
+    margin: 0 0 20px;
+}
+.services .services-content .srv p {
+    color: var(--paragraph-color);
+    font-weight: 300;
+    line-height: 1.6;
+}
+.services .services-content .image {
+    text-align: center;
+    position: relative;
+}
+.services .services-content .image img {
+    width: 260px;
+}
+.services .services-content .image::before {
+    content: '';
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: var(--secondary-color);
+    position: absolute;
+    right: 0;
+    top: -50px;
+    z-index: -1;
+}
+@media (max-width: 1199px) { /*ستختفي الصورة في القياسات التي تكون 1199 واصغر*/
+    .image-column {
+        display: none;
+    }
+}
+/* End Services */
+/* Start Protfolio */
+.protfolio {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: var(--padding-between-pages);
+    background-color: var(--section-background);
+}
+.protfolio .portfolio-content {
+    margin-top: 80px;
+}
+.protfolio .portfolio-content .card {
+    background-color: white;
+}
+.protfolio .portfolio-content .card img {
+    max-width: 100%;
+}
+.protfolio .portfolio-content .card .info {
+    padding: 20px;
+}
+.protfolio .portfolio-content .card .info h3 {
+    font-weight: 800;
+    margin: 0;
+}
+.protfolio .portfolio-content .card .info p {
+    line-height: 1.6;
+    color: var(--paragraph-color);
+    margin-bottom: 0;
+}
+/* End Protfolio */
+/* Start About */
+.about {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: calc(var(--padding-between-pages) + 60px);
+}
+.about .about-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+@media (max-width: 991px) {
+    .about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+@media (max-width: 991px) {
+    .about .about-content .image {
+        margin: 0 auto 60px;
+    }
+}
+.about .about-content .image::before {
+    content: '';
+    width: 100px;
+    height: calc(100% + 80px);
+    background-color: #ebeced;
+    position: absolute;
+    left: -20px;
+    top: -40px;
+    z-index: -1;
+}
+.about .about-content .image::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    top: -40px;
+    right: -150px;
+    z-index: -1;
+}
+@media (max-width: 991px) {
+    .about .about-content .image::before,
+    .about .about-content .image::after {
+        display: none;
+    }
+}
+.about .about-content .image img {
+    max-width: 100%;
+}
+.about .about-content .text {
+    flex-basis: calc(100% - 500px); /* المقصود هنا هو كامل المساحة ناقص 500 بكسل خاصة بالصورة الموجودة على الجانب */
+}
+/* طريقة اخرى بدل من الطريقة السابقة لتقسيم الصفحة في الفلكس
+.about .about-content .text {
+    flex: 1; 
+    padding: 200px;
+} */
+.about .about-content .text p:first-of-type {
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+.about .about-content .text hr {
+    width: 50%;
+    border-color: var(--main-color);
+    display: inline-block;
+}
+.about .about-content .text p:last-of-type {
+    line-height: 2;
+    margin-top: 25px;
+    color: var(--paragraph-color);
+}
+/* End About */
+/*Start Contact*/
+.contact {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: var(--padding-between-pages);
+    background-color: var(--section-background);
+}
+.contact .info {
+    padding-top: var(--padding-between-pages);
+    padding-bottom: var(--padding-between-pages);
+    text-align: center;
+}
+.contact .info .label {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .contact .info .label {
+        font-size: 25px;
+    }
+}
+.contact .info a {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 30px;
+    font-weight: 800;
+    margin: 20px 0;
+    display: inline-block;
+}
+@media (max-width: 767px) {
+    .contact .info a {
+        font-size: 22px;
+    }
+}
+.contact .info .social {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+/*End Contact*/
+/* Start Footer */
+.footer {
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+}
+.footer span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End Footer */
