@@ -80,10 +80,10 @@ body {
 /* End Components */
 
 /* Clicking on it will take you back to the beginning of the page */
-button {
+button:first-of-type {
   position: fixed;
-  bottom: 70px;
-  right: 70px;
+  bottom: 50px;
+  right: 50px;
   width: 60px;
   height: 60px;
   border: 1px solid var(--main-color);
@@ -92,13 +92,19 @@ button {
   transition: var(--main-duration);
   cursor: pointer;
 }
-button i {
+button:first-of-type i {
   font-size: 24px;
   color: var(--main-color);
   transition: var(--main-duration);
 }
 button:hover {
   background-color: #ebeced;
+}
+@media (max-width: 767px) {
+  button:first-of-type {
+    bottom: 25px;
+    right: 25px;
+  }
 }
 
 /* Start Header  */
@@ -242,7 +248,7 @@ header .links ul li a:hover {
   margin-bottom: 40px;
 }
 @media (max-width: 767px) {
-  /*لاجل انن يتم عرض التصميم بالطول في الهاتف*/
+  /*لاجل ان يتم عرض التصميم بالطول في الهاتف*/
   .services .services-content .srv {
     flex-direction: column;
     text-align: center;
@@ -267,6 +273,7 @@ header .links ul li a:hover {
 .services .services-content .image {
   text-align: center;
   position: relative;
+  z-index: -1;
 }
 .services .services-content .image img {
   width: 260px;
