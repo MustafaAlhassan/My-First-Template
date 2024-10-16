@@ -91,11 +91,19 @@ button:first-of-type {
   background-color: white;
   transition: var(--main-duration);
   cursor: pointer;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  -ms-transition: var(--main-duration);
+  -o-transition: var(--main-duration);
 }
 button:first-of-type i {
   font-size: 24px;
   color: var(--main-color);
   transition: var(--main-duration);
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  -ms-transition: var(--main-duration);
+  -o-transition: var(--main-duration);
 }
 button:hover {
   background-color: #ebeced;
@@ -142,6 +150,10 @@ header .links .burger-icon span:first-child {
 header .links .burger-icon span:nth-child(2) {
   width: 60%;
   transition: var(--main-duration);
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  -ms-transition: var(--main-duration);
+  -o-transition: var(--main-duration);
 }
 header .links .burger-icon span:last-child {
   width: 100%;
@@ -176,6 +188,10 @@ header .links ul li a {
   padding: 15px;
   color: #333;
   transition: var(--main-duration);
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  -ms-transition: var(--main-duration);
+  -o-transition: var(--main-duration);
 }
 header .links ul li:not(:last-child) a {
   border-bottom: 1px #cac1c1 solid;
@@ -195,11 +211,15 @@ header .links ul li a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  /*السطرين في الأسفل الغرض منهم هو منع تمدد العنصر*/
+  /*السطرينفيالأسفلالغرضمنهمهومنعتمددالعنصر*/
   width: 320px;
+  transform: translate(-50%, -50%);
   max-width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 .landing .intro-text h1 {
   margin: 0;
